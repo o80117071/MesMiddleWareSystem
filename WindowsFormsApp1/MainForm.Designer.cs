@@ -34,27 +34,31 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.Location = new System.Drawing.Point(12, 456);
+            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.Location = new System.Drawing.Point(11, 307);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1059, 399);
+            this.panelContainer.Size = new System.Drawing.Size(792, 377);
             this.panelContainer.TabIndex = 0;
             // 
             // logListBox
             // 
             this.logListBox.FormattingEnabled = true;
-            this.logListBox.ItemHeight = 15;
-            this.logListBox.Location = new System.Drawing.Point(531, 22);
+            this.logListBox.ItemHeight = 12;
+            this.logListBox.Location = new System.Drawing.Point(398, 18);
+            this.logListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(529, 409);
+            this.logListBox.Size = new System.Drawing.Size(398, 268);
             this.logListBox.TabIndex = 1;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 867);
+            this.ClientSize = new System.Drawing.Size(812, 694);
             this.Controls.Add(this.logListBox);
             this.Controls.Add(this.panelContainer);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
