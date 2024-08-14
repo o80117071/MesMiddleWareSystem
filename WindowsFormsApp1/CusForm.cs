@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             CusFormSettings.SetSettingValue("txt_1", txt_1.Text);
+            MainForm.Instance.AddLogMessage("button1_Click");
         }
     }
 }

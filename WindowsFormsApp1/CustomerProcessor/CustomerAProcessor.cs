@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.CustomerProcessor
         public ResponseData ProcessCheckProject(RequestData requestData)
         {
             string value = CusFormSettings.GetSettingValue("txt_1");
-            Console.WriteLine("Processing CheckProject for CustomerA");
+            MainForm.Instance.AddLogMessage("Processing CheckProject for CustomerA");
             return new ResponseData()
             {
                 Status = "PASS",

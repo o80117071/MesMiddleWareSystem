@@ -10,19 +10,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using log4net;
 
 
 namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
+        private static MainForm _instance;
+        private static readonly ILog log = LogManager.GetLogger(typeof(MainForm));
         private List<FileMonitor> monitors = new List<FileMonitor>();
         public MainForm()
         {
             InitializeComponent();
+            _instance = this;
+
             Configuration.LoadConfiguration();
             ShowSettingsForm();
             StartMonitoring();
+
+            log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
+            var logControlAppender = new LogControlAppender(logListBox);  
+            ((log4net.Repository.Hierarchy.Logger)log.Logger).AddAppender(logControlAppender);
+
+            //log.Info("Form initialized");
         }
         private void ShowSettingsForm()
         {
@@ -76,6 +87,16 @@ namespace WindowsFormsApp1
             {
                 monitor.StopMonitoring();
             }
+        }
+
+        public static MainForm Instance
+        {
+            get { return _instance; }
+        }
+
+        public void AddLogMessage(string message)
+        {
+            log.Info(message);
         }
     }
 
