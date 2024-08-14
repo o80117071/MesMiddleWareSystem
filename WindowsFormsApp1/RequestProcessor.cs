@@ -22,29 +22,7 @@ namespace WindowsFormsApp1
         public void ProcessRequest(RequestData requestData, RequestType requestType)
         {
             ResponseData responseData;
-
-            // 根據requestType處理請求
-            switch (requestType)
-            {
-                case RequestType.CheckUser:
-                    responseData = _mesProcessor.ProcessRequest(requestData, RequestType.CheckUser, _customerProcessor);
-                    break;
-
-                case RequestType.CheckProject:
-                    responseData = _mesProcessor.ProcessRequest(requestData, RequestType.CheckProject, _customerProcessor);
-                    break;
-
-                case RequestType.CheckBarcode:
-                    responseData = _mesProcessor.ProcessRequest(requestData, RequestType.CheckBarcode, _customerProcessor);
-                    break;
-
-                case RequestType.SendResult:
-                    responseData = _mesProcessor.ProcessRequest(requestData, RequestType.SendResult, _customerProcessor);
-                    break;
-
-                default:
-                    throw new NotSupportedException($"Request type {requestType} is not supported.");
-            }
+            responseData = _mesProcessor.ProcessRequest(requestData, requestType, _customerProcessor);
 
             string responseFilePath = GetResponseFilePath(_mesProcessor.MESType, requestType);
             WriteResponseToXml(responseData, responseFilePath);

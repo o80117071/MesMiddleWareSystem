@@ -28,22 +28,16 @@ namespace WindowsFormsApp1
         {
             if(Configuration.CustomerName == "CustomerA")
             {
-                // 创建 SettingsForm 实例
                 var settingsForm = new CusForm();
 
-                // 设置为非顶级窗体，使其可以嵌入到 Panel 中
                 settingsForm.TopLevel = false;
 
-                // 移除边框
                 settingsForm.FormBorderStyle = FormBorderStyle.None;
 
-                // 设置填充整个 Panel
                 settingsForm.Dock = DockStyle.Fill;
 
-                // 将 SettingsForm 添加到 Panel 容器中
                 this.panelContainer.Controls.Add(settingsForm);
 
-                // 显示 SettingsForm
                 settingsForm.Show();
             }      
         }
