@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             _instance = this;
 
-            Configuration.LoadConfiguration();
+            LoadConfig();
             ShowSettingsForm();
             StartMonitoring();
 
@@ -35,6 +35,14 @@ namespace WindowsFormsApp1
 
             //log.Info("Form initialized");
         }
+
+        private void LoadConfig()
+        {
+            Configuration.LoadConfiguration();
+            txt_Customer.Text = Configuration.CustomerName;
+
+        }
+
         private void ShowSettingsForm()
         {
             if(Configuration.CustomerName == "CustomerA")
