@@ -85,6 +85,11 @@ namespace WindowsFormsApp1
             return RequestType.Unknown;
         }
 
+        /// <summary>
+        /// send request to factory
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="requestType"></param>
         private void ProcessFile(string filePath, RequestType requestType)
         {
             RequestData requestData = ParseFile(filePath);
@@ -92,7 +97,7 @@ namespace WindowsFormsApp1
 
             // Create RequestProcessor 處理請求
             RequestProcessor processor = new RequestProcessor(mesType);
-            processor.ProcessRequest(requestData, requestType);
+            processor.ProcessRequest(requestData, requestType); 
         }
         private MesType DetermineMESType(string filePath)
         {

@@ -32,6 +32,7 @@
             this.logListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Customer = new System.Windows.Forms.TextBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -47,34 +48,45 @@
             // 
             this.logListBox.FormattingEnabled = true;
             this.logListBox.ItemHeight = 12;
-            this.logListBox.Location = new System.Drawing.Point(398, 18);
+            this.logListBox.Location = new System.Drawing.Point(398, 42);
             this.logListBox.Margin = new System.Windows.Forms.Padding(2);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(398, 268);
+            this.logListBox.Size = new System.Drawing.Size(398, 244);
             this.logListBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 12);
+            this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Customer";
             // 
             // txt_Customer
             // 
             this.txt_Customer.Enabled = false;
-            this.txt_Customer.Location = new System.Drawing.Point(68, 12);
+            this.txt_Customer.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txt_Customer.Location = new System.Drawing.Point(79, 13);
             this.txt_Customer.Name = "txt_Customer";
-            this.txt_Customer.Size = new System.Drawing.Size(111, 22);
+            this.txt_Customer.Size = new System.Drawing.Size(111, 27);
             this.txt_Customer.TabIndex = 3;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Location = new System.Drawing.Point(398, 12);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(398, 28);
+            this.statusLabel.TabIndex = 4;
+            this.statusLabel.Text = "label2";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 694);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.txt_Customer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.logListBox);
@@ -82,6 +94,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,6 +106,7 @@
         private System.Windows.Forms.ListBox logListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_Customer;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
 

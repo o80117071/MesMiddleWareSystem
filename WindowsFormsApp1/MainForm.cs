@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         private static MainForm _instance;
         private static readonly ILog log = LogManager.GetLogger(typeof(MainForm));
         private List<FileMonitor> monitors = new List<FileMonitor>();
+
         public MainForm()
         {
             InitializeComponent();
@@ -32,8 +33,9 @@ namespace WindowsFormsApp1
             log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
             var logControlAppender = new LogControlAppender(logListBox);  
             ((log4net.Repository.Hierarchy.Logger)log.Logger).AddAppender(logControlAppender);
+            UpdateStatusLabel(true);
 
-            //log.Info("Form initialized");
+
         }
 
         private void LoadConfig()
@@ -95,6 +97,7 @@ namespace WindowsFormsApp1
             {
                 monitor.StopMonitoring();
             }
+            UpdateStatusLabel(false);
         }
 
         public static MainForm Instance
@@ -106,6 +109,24 @@ namespace WindowsFormsApp1
         {
             log.Info(message);
         }
+        private void UpdateStatusLabel(bool statusflag)
+        {
+            if (statusflag)
+            {
+                this.statusLabel.Text = "Active";
+                this.statusLabel.BackColor = System.Drawing.Color.LightGreen;
+                this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                this.statusLabel.Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold);
+            }
+            else
+            {
+                this.statusLabel.Text = "Stop";
+                this.statusLabel.BackColor = System.Drawing.Color.MediumVioletRed;
+                this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                this.statusLabel.Font = new System.Drawing.Font("Arial", 14, System.Drawing.FontStyle.Bold);
+            }
+        }
+
     }
 
     public static class Configuration
